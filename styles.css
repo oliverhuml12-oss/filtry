@@ -84,10 +84,14 @@ a:hover { color: var(--green-darker); }
 }
 
 /* Header: logo only */
-.site-header { position: relative; z-index: 2; }
-.header-inner { height: var(--header-h); display: flex; align-items: center; justify-content: center; }
+.site-header { position: relative; z-index: 2; border-bottom: 1px solid var(--line); }
+.header-inner {
+  height: calc(var(--header-h) - 1px); display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+.header-note { font-size: 14px; color: var(--muted); text-align: right; }
+.header-note span { color: var(--ink); }
 .brand { display: block; flex: 0 0 auto; }
-.brand img { height: 32px; width: auto; }
+.brand img { height: 30px; width: auto; }
 
 /* Email sign-up: one rounded field with the button inside */
 .signup { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; width: 100%; max-width: 500px; }
@@ -131,20 +135,23 @@ a:hover { color: var(--green-darker); }
 .hero-copy {
   display: grid; grid-template-columns: minmax(0, 1fr);
   justify-items: center; text-align: center;
-  gap: clamp(8px, 2vh, 20px);
+  gap: clamp(10px, 2.4vh, 24px);
+  padding-top: clamp(8px, 3.5vh, 48px);
 }
+/* Two deliberate lines: the promise in ink, the payoff in a quiet grey */
 .hero-title {
   font-family: var(--serif);
-  font-weight: 300;
-  font-size: clamp(24px, min(4.8vw, 6.6vh), 64px);
-  line-height: 1.06;
-  letter-spacing: -0.025em;
-  max-width: 22ch;
+  font-weight: 400;
+  font-size: clamp(26px, min(4.6vw, 6.4vh), 66px);
+  line-height: 1.08;
+  letter-spacing: -0.022em;
   text-wrap: balance;
 }
+.hero-title-line { display: block; }
+.hero-title-quiet { color: #8A9194; }
 .hero-lead {
-  max-width: 34em; text-wrap: balance; color: var(--muted);
-  font-size: clamp(14px, 2.3vh, 18px); line-height: 1.55;
+  max-width: 44em; text-wrap: balance; color: var(--text);
+  font-size: clamp(14px, 2.2vh, 17px); line-height: 1.55;
 }
 .hero-product {
   margin: 0; min-height: 0; height: 100%; overflow: hidden;
@@ -315,7 +322,8 @@ a:hover { color: var(--green-darker); }
   .signup-field input { height: 44px; }
   .pill-button { min-height: 44px; padding: 0 18px; }
   .signup-note, .signup-error { padding-left: 18px; }
-  .hero-title { font-size: clamp(26px, min(8.4vw, 5.6vh), 40px); }
+  .hero-title { font-size: clamp(26px, min(8.2vw, 5.4vh), 40px); }
+  .header-note { display: none; }
   .hero-product { padding: 0 8px; }
   .hero-product img { -webkit-mask-image: none; mask-image: none; }
   .bar-row { grid-template-columns: 1fr; gap: 8px; }
