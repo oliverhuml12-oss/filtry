@@ -84,7 +84,7 @@ a:hover { color: var(--green-darker); }
 
 /* Header: logo only */
 .site-header { position: relative; z-index: 2; }
-.header-inner { height: 84px; display: flex; align-items: center; }
+.header-inner { height: 76px; display: flex; align-items: center; justify-content: center; }
 .brand { display: block; flex: 0 0 auto; }
 .brand img { height: 32px; width: auto; }
 
@@ -113,29 +113,35 @@ a:hover { color: var(--green-darker); }
 .signup-thanks-text { color: var(--muted); }
 .region-choices { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
 
-/* Hero */
-.hero { padding-top: clamp(24px, 4vw, 56px); overflow: hidden; }
-.hero-copy { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; justify-items: start; }
+/* Hero: centred, product at a calm size below the sign-up */
+.hero { padding: clamp(24px, 3.5vw, 56px) 0 clamp(40px, 6vw, 88px); overflow: hidden; }
+.hero-copy {
+  display: grid; grid-template-columns: minmax(0, 1fr);
+  justify-items: center; text-align: center; gap: 20px;
+}
 .hero-title {
   font-family: var(--serif);
   font-weight: 300;
-  font-size: clamp(38px, 5.2vw, 72px);
-  line-height: 1.04;
-  letter-spacing: -0.03em;
-  max-width: 20ch;
+  font-size: clamp(38px, 4.8vw, 64px);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  max-width: 22ch;
+  text-wrap: balance;
 }
-.hero-lead { max-width: 620px; font-size: 18px; color: var(--muted); }
-.hero-copy .signup { margin-top: 6px; }
+.hero-lead { max-width: 34em; text-wrap: balance; font-size: 18px; color: var(--muted); }
+.hero-copy .signup { margin-top: 10px; }
+.hero-copy .signup-note, .hero-copy .signup-error { padding-left: 0; }
+.hero-copy .signup-thanks { justify-items: center; }
+.hero-copy .region-choices { justify-content: center; }
 .hero-product {
-  margin: clamp(28px, 3.5vw, 48px) auto 0;
-  max-width: 1440px;
-  padding: 0 clamp(8px, 2vw, 32px);
+  margin: clamp(32px, 4vw, 52px) auto 0;
+  width: min(860px, 100% - 2 * var(--gutter));
 }
 .hero-product img {
   width: 100%;
   /* The product photo has a faint grey vignette; fade its edges into the white page. */
-  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 4%, #000 96%, transparent 100%);
-          mask-image: linear-gradient(to right, transparent 0, #000 4%, #000 96%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 5%, #000 95%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, #000 5%, #000 95%, transparent 100%);
 }
 
 /* Sections */
@@ -273,13 +279,8 @@ a:hover { color: var(--green-darker); }
   .signup-field input { height: 44px; }
   .pill-button { min-height: 44px; padding: 0 18px; }
   .signup-note, .signup-error { padding-left: 18px; }
-  /* The product is very wide: on phones show it larger and let the flared end run off the edge,
-     so the cap and logo stay big enough to read. */
-  .hero-product { margin: 28px 0 0; padding: 0; overflow: hidden; }
-  .hero-product img {
-    width: 136%; max-width: none; margin-left: -1%;
-    -webkit-mask-image: none; mask-image: none;
-  }
+  .hero { padding-bottom: 24px; }
+  .hero-product { margin-top: 32px; width: 100%; }
   .bar-row { grid-template-columns: 1fr; gap: 8px; }
   .bars { gap: 20px; }
   .footer-inner { flex-direction: column; gap: 8px; }
