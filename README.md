@@ -8,7 +8,7 @@ Plain HTML, CSS and JavaScript. No build step and no dependencies.
 
 - `index.html`: the page
 - `styles.css`: all styles, including the tablet and phone layouts
-- `main.js`: header behaviour, the bar animation and the sign-up form
+- `main.js`: the bar animation and the sign-up forms
 - `assets/`: logo, product image and icons
 
 ## Run it locally
@@ -23,7 +23,9 @@ then visit http://localhost:8000.
 
 ## Sign-up form
 
-The form is front-end only for now. It validates the email, the region and the consent tick box, then shows a confirmation. Nothing is sent or stored. To connect a backend, replace `submitSignup()` in `main.js` with a real request. It receives `{ email, region, consent, signedUpAt }`.
+There are two identical sign-up fields, one in the hero and one at the bottom of the page. Each takes an email address, validates it and then asks which island the person lives on, so we know where to tell them about the pilot.
+
+It is front-end only for now. Nothing is sent or stored. To connect a backend, replace `submitSignup()` (receives `{ email, signedUpAt }`) and `saveRegion()` (receives `{ email, region }`) in `main.js` with real requests.
 
 ## Deploying
 
