@@ -8,7 +8,7 @@
 // (a warning is logged in the browser console).
 window.REBOTTLED_CONFIG = {
   // Supabase → Project Settings → Data API → Project URL, e.g. "https://abcd1234.supabase.co"
-  supabaseUrl: "",
+  supabaseUrl: "https://iswibgplfxicvrcxrhpk.supabase.co",
   // Supabase → Project Settings → API Keys → Publishable key ("sb_publishable_…")
-  supabaseKey: ""
+  supabaseKey: "sb_publishable_TH8YEfSp07PI81LtksUxng_iJsPHSnQ"
 };

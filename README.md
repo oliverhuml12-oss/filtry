@@ -31,7 +31,9 @@ There are two identical sign-up fields, one in the hero and one at the bottom of
 
 Sign-ups go to a Supabase table called `signups` through the `upsert_signup()` database function. The browser only uses the publishable key. Row Level Security keeps the table closed to the public, so nobody can read the list from the website.
 
-Setup (once):
+The live project is **Filtry** (`iswibgplfxicvrcxrhpk`, EU West). The schema in `supabase/schema.sql` is applied there and `config.js` points to it.
+
+To set up a new project from scratch:
 
 1. Create a project at [supabase.com](https://supabase.com). Pick an EU region, for example Frankfurt.
 2. Open **SQL Editor**, paste the contents of `supabase/schema.sql` and run it.
