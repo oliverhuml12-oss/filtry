@@ -83,7 +83,7 @@ LOCALES = {
     "es": {
         "lang": "es",
         "fonts": None,
-        "grid": {"n": 240, "cols": 20, "rows": 12, "mcols": 40, "mrows": 6},
+        "grid": None,  # 450, the highest market figure, on every page
         "local_row": "row_es",
         "t": {
             "title": "<title>reBottled | Agua del grifo que sabe a embotellada, sin plástico</title>",
@@ -107,15 +107,15 @@ LOCALES = {
             "row_cy": '<div class="bar-row">\n                <dt>Chipre</dt>',
             "row_es": '<div class="bar-row is-local">\n                <dt>Canarias</dt>',
             "row_eu": '<dt>Media de la UE</dt>',
-            "caption": '<figcaption><span class="wall-number">240</span> botellas al año que deja de comprar un hogar canario típico.</figcaption>',
-            "grid_aria": "Una cuadrícula de 240 botellas de plástico pequeñas",
+            "caption": '<figcaption><span class="wall-number">450</span> botellas al año que puede dejar de comprar un hogar.</figcaption>',
+            "grid_aria": "Una cuadrícula de 450 botellas de plástico pequeñas",
             "compare_h2": '>Mejor para las islas, más fácil para ti</h2>',
             "compare_aria": 'aria-label="Agua embotellada comparada con reBottled"',
             "compared_on": '>Comparamos</span>',
             "head_bottled": '</svg>Agua embotellada</span>',
             "data_bottled": 'data-label="Embotellada"',
             "r1h": '>Botellas de plástico al año</span>',
-            "r1b": '<span>Unas 240 por hogar</span>',
+            "r1b": '<span>Hasta 450 por hogar</span>',
             "r1u": '<span><strong>Ninguna</strong></span>',
             "r2h": '>Cargar con el agua</span>',
             "r2b": '<span>Garrafas del súper, cada semana</span>',
@@ -166,7 +166,7 @@ LOCALES = {
     "cy": {
         "lang": "el",
         "fonts": "https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,300;7..72,400;7..72,500&family=Noto+Sans:wght@400;500;600&display=swap",
-        "grid": {"n": 390, "cols": 26, "rows": 15, "mcols": 39, "mrows": 10},
+        "grid": None,  # 450, the highest market figure, on every page
         "local_row": "row_cy",
         "t": {
             "title": "<title>reBottled | Νερό βρύσης με γεύση εμφιαλωμένου, χωρίς πλαστικό</title>",
@@ -190,15 +190,15 @@ LOCALES = {
             "row_cy": '<div class="bar-row is-local">\n                <dt>Κύπρος</dt>',
             "row_es": '<div class="bar-row">\n                <dt>Κανάριοι Νήσοι</dt>',
             "row_eu": '<dt>Μέσος όρος ΕΕ</dt>',
-            "caption": '<figcaption><span class="wall-number">390</span> μπουκάλια τον χρόνο που ένα τυπικό κυπριακό σπίτι σταματά να αγοράζει.</figcaption>',
-            "grid_aria": "Πλέγμα με 390 μικρά πλαστικά μπουκάλια",
+            "caption": '<figcaption><span class="wall-number">450</span> μπουκάλια τον χρόνο που μπορεί να σταματήσει να αγοράζει ένα σπίτι.</figcaption>',
+            "grid_aria": "Πλέγμα με 450 μικρά πλαστικά μπουκάλια",
             "compare_h2": '>Καλύτερο για το νησί, πιο εύκολο για εσάς</h2>',
             "compare_aria": 'aria-label="Εμφιαλωμένο νερό σε σύγκριση με το reBottled"',
             "compared_on": '>Σύγκριση</span>',
             "head_bottled": '</svg>Εμφιαλωμένο νερό</span>',
             "data_bottled": 'data-label="Εμφιαλωμένο"',
             "r1h": '>Πλαστικά μπουκάλια τον χρόνο</span>',
-            "r1b": '<span>Περίπου 390 ανά σπίτι</span>',
+            "r1b": '<span>Έως 450 ανά σπίτι</span>',
             "r1u": '<span><strong>Κανένα</strong></span>',
             "r2h": '>Κουβάλημα</span>',
             "r2b": '<span>Μπουκάλια και ντεμιτζάνες, κάθε εβδομάδα</span>',
@@ -383,6 +383,7 @@ for code, cfg in LOCALES.items():
     s = must_replace(s, '<html lang="en">', f'<html lang="{cfg["lang"]}">')
     # paths: the localised page lives one folder down
     s = must_replace(s, 'href="styles.css"', 'href="../styles.css"')
+    s = must_replace(s, 'src="config.js"', 'src="../config.js"')
     s = must_replace(s, 'src="main.js"', 'src="../main.js"')
     s = s.replace('"assets/', '"../assets/').replace(", assets/", ", ../assets/")
     if cfg["fonts"]:

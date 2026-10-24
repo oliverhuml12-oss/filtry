@@ -1,6 +1,6 @@
 // reBottled landing page
-// The sign-up forms are front-end only for now: nothing is sent or stored.
-// When a backend exists, replace submitSignup() and saveRegion() with real requests.
+// Sign-ups are saved to Supabase through the upsert_signup() function
+// (see supabase/schema.sql). Connection details live in config.js.
 
 (function () {
   "use strict";
@@ -57,16 +57,38 @@
   }
   var REGIONS = T.regions;
 
-  // Placeholders for the real requests. They return promises so the UI flow
-  // already matches what network calls will need.
-  function submitSignup(data) {
-    // TODO: send { email, signedUpAt } to the sign-up backend.
-    return new Promise(function (resolve) { setTimeout(resolve, 350); });
+  // Saving to Supabase
+  var CONFIG = window.REBOTTLED_CONFIG || {};
+  var SUPABASE_URL = (CONFIG.supabaseUrl || "").replace(/\/+$/, "");
+  var SUPABASE_KEY = CONFIG.supabaseKey || "";
+  var LOCALE = document.documentElement.lang || "en";
+
+  function upsertSignup(email, region) {
+    if (!SUPABASE_URL || !SUPABASE_KEY) {
+      // Not configured yet: keep the form usable for previews, but say so.
+      console.warn("reBottled: Supabase is not configured in config.js, so this sign-up was not saved.");
+      return new Promise(function (resolve) { setTimeout(resolve, 300); });
+    }
+    var headers = { "Content-Type": "application/json", "apikey": SUPABASE_KEY };
+    // Legacy anon keys are JWTs and may also go in Authorization; publishable keys must not.
+    if (SUPABASE_KEY.indexOf("eyJ") === 0) headers.Authorization = "Bearer " + SUPABASE_KEY;
+
+    return fetch(SUPABASE_URL + "/rest/v1/rpc/upsert_signup", {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify({
+        p_email: email,
+        p_region: region || null,
+        p_locale: LOCALE,
+        p_page: window.location.pathname
+      })
+    }).then(function (response) {
+      if (!response.ok) throw new Error("Sign-up failed with status " + response.status);
+    });
   }
-  function saveRegion(data) {
-    // TODO: send { email, region } to the sign-up backend.
-    return Promise.resolve();
-  }
+
+  function submitSignup(data) { return upsertSignup(data.email, null); }
+  function saveRegion(data) { return upsertSignup(data.email, data.region); }
 
   function el(tag, className, text) {
     var node = document.createElement(tag);
@@ -90,11 +112,15 @@
       var button = el("button", "pill-button pill-button-quiet", region.label);
       button.type = "button";
       button.addEventListener("click", function () {
+        Array.prototype.forEach.call(choices.children, function (b) { b.disabled = true; });
         saveRegion({ email: email, region: region.id }).then(function () {
           choices.remove();
           question.textContent = region.place
             ? T.thanksPlace.replace("{place}", region.place)
             : T.thanksOther;
+        }).catch(function () {
+          question.textContent = T.errorFailed;
+          Array.prototype.forEach.call(choices.children, function (b) { b.disabled = false; });
         });
       });
       choices.appendChild(button);
@@ -152,7 +178,7 @@
       button.disabled = true;
       button.textContent = T.sending;
 
-      submitSignup({ email: value, signedUpAt: new Date().toISOString() })
+      submitSignup({ email: value })
         .then(function () {
           showThanks(form, value);
         })
