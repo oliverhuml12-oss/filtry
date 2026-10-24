@@ -56,119 +56,111 @@
       </div>
     </section>
 
-    <section class="section mission" id="mission">
-      <div class="wrap mission-grid">
-        <div class="mission-text">
-          <h2>Every glass is a bottle that never gets made.</h2>
-          <p>We are a social enterprise. We measure our success the way any company does, by whether it pays its way, and also by one more number: how many plastic bottles our customers no longer buy.</p>
-          <p>Every home gets its own bottle counter and a short report each year, showing how much plastic it has kept out of the bin, the landfill and the sea.</p>
+    <section class="section impact" id="mission" aria-labelledby="impact-title">
+      <div class="wrap impact-grid">
+        <div class="impact-copy">
+          <h2 id="impact-title">Every glass is a bottle that never gets made.</h2>
+          <p class="lead">We are a social enterprise. We count our success in profit and in plastic bottles our customers no longer buy, and every home gets a yearly bottle report.</p>
+          <div class="chart" aria-labelledby="chart-title">
+            <p class="chart-title" id="chart-title">Bottled water per person each year, in 1.5 L bottles</p>
+            <dl class="bars">
+              <div class="bar-row">
+                <dt>Malta</dt>
+                <dd><span class="bar"><span style="--w: 100%"></span></span><span class="bar-value">183</span></dd>
+              </div>
+              <div class="bar-row">
+                <dt>Cyprus</dt>
+                <dd><span class="bar"><span style="--w: 86%"></span></span><span class="bar-value">157</span></dd>
+              </div>
+              <div class="bar-row">
+                <dt>Canary Islands</dt>
+                <dd><span class="bar"><span style="--w: 53%"></span></span><span class="bar-value">97</span></dd>
+              </div>
+              <div class="bar-row is-reference">
+                <dt>EU average</dt>
+                <dd><span class="bar"><span style="--w: 27%"></span></span><span class="bar-value">49</span></dd>
+              </div>
+            </dl>
+          </div>
         </div>
-        <aside class="mission-stat" aria-label="Household impact">
-          <p class="big-number">450</p>
-          <p>bottles a year that a typical Maltese household stops buying.</p>
-          <p class="fine">Based on about 685 litres of bottled water per home, in 1.5 litre bottles.</p>
-        </aside>
+        <figure class="bottle-wall">
+          <div class="bottle-grid" role="img" aria-label="A grid of 450 small plastic bottles"></div>
+          <figcaption><span class="wall-number">450</span> bottles a typical Maltese home stops buying every year.</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="section problem" aria-labelledby="problem-title">
-      <div class="wrap problem-grid">
-        <div>
-          <h2 id="problem-title">Where the bottles pile up</h2>
-          <p class="muted">Bottled water per person each year, counted in 1.5 litre bottles. Our three islands drink two to four times the EU average.</p>
-        </div>
-        <div>
-          <dl class="bars">
-            <div class="bar-row">
-              <dt>Malta</dt>
-              <dd><span class="bar"><span style="--w: 100%"></span></span><span class="bar-value">183</span></dd>
-            </div>
-            <div class="bar-row">
-              <dt>Cyprus</dt>
-              <dd><span class="bar"><span style="--w: 86%"></span></span><span class="bar-value">157</span></dd>
-            </div>
-            <div class="bar-row">
-              <dt>Canary Islands</dt>
-              <dd><span class="bar"><span style="--w: 53%"></span></span><span class="bar-value">97</span></dd>
-            </div>
-            <div class="bar-row is-reference">
-              <dt>EU average</dt>
-              <dd><span class="bar"><span style="--w: 27%"></span></span><span class="bar-value">49</span></dd>
-            </div>
-          </dl>
-          <p class="fine">Canary Islands figure counts water bought for the home only.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section why" id="why">
+    <section class="section compare" id="why" aria-labelledby="compare-title">
       <div class="wrap">
-        <h2>Better for the islands, easier for you</h2>
-        <div class="why-grid">
-          <div>
-            <h3>It tastes like bottled water</h3>
-            <p>Reverse osmosis takes out the salt and the chlorine, then a mineral stage adds calcium and magnesium back. Most local bottled water is made in exactly the same way.</p>
+        <h2 id="compare-title" class="section-title">Better for the islands, easier for you</h2>
+        <div class="compare-table" role="table" aria-label="Bottled water compared with reBottled">
+          <div class="compare-row compare-head" role="row">
+            <span role="columnheader"><span class="visually-hidden">Compared on</span></span>
+            <span role="columnheader" class="col-bottled"><svg class="icon icon-head" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.2 2.8h3.6v2.7l1.7 2.6v13.1h-7V8.1l1.7-2.6z"/><path d="M8.5 12h7"/></svg>Bottled water</span>
+            <span role="columnheader" class="col-us"><img src="assets/favicon.png" alt="" width="22" height="22">reBottled</span>
           </div>
-          <div>
-            <h3>Nothing to carry home</h3>
-            <p>No more packs from the supermarket, barrel deliveries or crates in the hallway. There is always enough for drinking, cooking and coffee.</p>
+          <div class="compare-row" role="row">
+            <span role="rowheader">Plastic bottles a year</span>
+            <span role="cell" class="col-bottled"><span>About 450 per home</span></span>
+            <span role="cell" class="col-us"><span><strong>None</strong></span></span>
           </div>
-          <div>
-            <h3>The money stays sensible</h3>
-            <p>In Malta, a family typically spends about as much on bottled water as our plan costs, and the plan has no hidden extras.</p>
+          <div class="compare-row" role="row">
+            <span role="rowheader">Carrying</span>
+            <span role="cell" class="col-bottled"><span>Packs from the shop, every week</span></span>
+            <span role="cell" class="col-us"><span><strong>Nothing.</strong> It comes from your tap</span></span>
+          </div>
+          <div class="compare-row" role="row">
+            <span role="rowheader">Taste</span>
+            <span role="cell" class="col-bottled"><span>Depends on the brand</span></span>
+            <span role="cell" class="col-us"><span><strong>No salt, no chlorine,</strong> minerals added back</span></span>
+          </div>
+          <div class="compare-row" role="row">
+            <span role="rowheader">Cost in Malta</span>
+            <span role="cell" class="col-bottled"><span>About €17–30 a month</span></span>
+            <span role="cell" class="col-us"><span><strong>€24.90</strong> a month, all in</span></span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section how" id="how">
-      <div class="wrap how-grid">
-        <div>
-          <h2>Simple to start, simple to stop</h2>
-        </div>
+    <section class="section how" id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <h2 id="how-title" class="section-title">Simple to start, simple to stop</h2>
         <ol class="steps">
           <li>
-            <h3>We send you the system</h3>
-            <p>A compact unit that fits under the kitchen sink, with its own small tap.</p>
+            <span class="step-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7.5 12 3.2l8.5 4.3v9L12 20.8l-8.5-4.3z"/><path d="M3.5 7.5 12 11.8l8.5-4.3M12 11.8v9"/></svg></span>
+            <h3>We send the system</h3>
+            <p>A compact unit for under the sink, with its own small tap.</p>
           </li>
           <li>
-            <h3>It goes in within half an hour</h3>
-            <p>Most people fit it themselves with our video. Pilot customers get installation for free.</p>
+            <span class="step-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span>
+            <h3>Fitted in 30 minutes</h3>
+            <p>Do it yourself with our video. Free installation for pilot homes.</p>
           </li>
           <li>
-            <h3>Filters arrive when they are due</h3>
-            <p>They twist in without tools. If you ever leave, we collect the system and give it a second home.</p>
+            <span class="step-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 12a7.5 7.5 0 0 1-13.4 4.6"/><path d="M4.5 12a7.5 7.5 0 0 1 13.4-4.6"/><path d="M18.4 3.8v3.9h-3.9"/><path d="M5.6 20.2v-3.9h3.9"/></svg></span>
+            <h3>Filters arrive on time</h3>
+            <p>They twist in without tools. Leave any time and we take it back.</p>
           </li>
         </ol>
-      </div>
-    </section>
 
-    <section class="section pricing" id="pricing">
-      <div class="wrap pricing-grid">
-        <div>
-          <h2>One price, everything included</h2>
-          <p class="muted">The system stays ours, so you never pay for hardware up front and you never deal with a broken one.</p>
-        </div>
-        <div class="price-block">
-          <p class="price"><span class="price-amount">€24.90</span> <span class="price-unit">a month</span></p>
+        <div class="price-band" id="pricing">
+          <p class="price"><span class="price-amount">€24.90</span><span class="price-unit">a month, everything included</span></p>
           <ul class="included">
-            <li>The water system, on loan</li>
-            <li>Every replacement filter, delivered</li>
-            <li>Support whenever you need it</li>
-            <li>Your yearly bottle report</li>
+            <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5c3.2 4.1 5.6 7.1 5.6 10a5.6 5.6 0 0 1-11.2 0c0-2.9 2.4-5.9 5.6-10z"/></svg>System on loan</li>
+            <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 12a7.5 7.5 0 0 1-13.4 4.6"/><path d="M4.5 12a7.5 7.5 0 0 1 13.4-4.6"/><path d="M18.4 3.8v3.9h-3.9"/><path d="M5.6 20.2v-3.9h3.9"/></svg>All filters</li>
+            <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 5.5h15v10h-8.2l-4.3 3.5v-3.5H4.5z"/></svg>Support</li>
+            <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5h15"/><path d="M7.5 16.5v-5M12 16.5V6.5M16.5 16.5v-8"/></svg>Yearly bottle report</li>
           </ul>
-          <p class="fine">24-month plan. Pilot customers get the first month and installation free.</p>
         </div>
+        <p class="fine price-fine">24-month plan. Pilot homes get the first month and installation free.</p>
       </div>
     </section>
 
     <section class="join" id="join" aria-labelledby="join-title">
       <div class="wrap join-inner">
-        <div class="join-copy">
-          <h2 id="join-title">Be first when we reach your island.</h2>
-          <p>We are starting with a pilot in Malta, followed by Cyprus and the Canary Islands. Leave your email and we will tell you when the pilot opens where you live. Early sign-ups get <strong>the first month and installation free</strong>.</p>
-        </div>
-
+        <h2 id="join-title">Be first when we reach your island.</h2>
+        <p class="join-lead">The pilot starts in Malta, then Cyprus and the Canary Islands. Early sign-ups get the first month and installation free.</p>
         <form class="signup" novalidate>
           <div class="signup-field">
             <label class="visually-hidden" for="join-email">Email address</label>
