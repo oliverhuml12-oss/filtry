@@ -207,6 +207,9 @@ a:hover { color: var(--green-darker); }
 .bar-value { text-align: right; font-size: 15px; font-weight: 500; color: var(--ink); font-variant-numeric: tabular-nums; }
 .is-reference dt, .is-reference .bar-value { color: var(--muted); font-weight: 400; }
 .is-reference .bar > span { background: #C9CDCD; }
+/* The visitor's own island on localised pages */
+.is-local dt, .is-local .bar-value { font-weight: 600; }
+.is-local .bar > span { background: var(--green-dark); }
 
 .js .bars .bar > span { transform: scaleX(0); transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1); }
 .js .bars.is-visible .bar > span { transform: scaleX(1); }
@@ -217,9 +220,12 @@ a:hover { color: var(--green-darker); }
 .bottle-wall { margin: 0; display: grid; gap: 16px; justify-items: center; }
 /* 30 columns x 15 rows = 450 bottles, each cell 1:2 */
 .bottle-grid {
-  width: 100%; max-width: 420px; aspect-ratio: 1 / 1;
+  /* --cols x --rows bottles; each page sets them to match its own number */
+  --cols: 30; --rows: 15; --ratio: 1;
+  --m-cols: 45; --m-rows: 10; --m-ratio: 2.25;
+  width: 100%; max-width: 420px; aspect-ratio: var(--ratio);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 24'%3E%3Cpath d='M4.6 3h2.8v2.3l1.4 2.3v12.9H3.2V7.6l1.4-2.3z' fill='none' stroke='%23AEB6B8' stroke-width='1' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-size: calc(100% / 30) calc(100% / 15);
+  background-size: calc(100% / var(--cols)) calc(100% / var(--rows));
   background-repeat: repeat;
 }
 .bottle-wall figcaption { text-align: center; color: var(--text); max-width: 26em; }
@@ -305,6 +311,16 @@ a:hover { color: var(--green-darker); }
 .site-footer { padding: 40px 0 48px; border-top: 1px solid var(--line); }
 .footer-inner { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
 .footer-line { font-family: var(--serif); font-size: 22px; color: var(--ink); }
+.lang-switch { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.lang-switch a { font-size: 14px; color: var(--muted); text-decoration: none; }
+.lang-switch a:hover { color: var(--ink); }
+.lang-switch a[aria-current="page"] { color: var(--ink); font-weight: 500; }
+
+/* Greek page: Newsreader and Libre Franklin have no Greek glyphs */
+html[lang="el"] {
+  --serif: "Literata", Georgia, "Times New Roman", serif;
+  --sans: "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+}
 
 /* Short screens: keep the post-sign-up panel compact so the photo stays visible */
 @media (max-height: 620px) {
@@ -343,7 +359,7 @@ a:hover { color: var(--green-darker); }
   .bar-row { grid-template-columns: 104px minmax(0, 1fr); gap: 12px; }
   .bar-row dt, .bar-value { font-size: 14px; }
   /* On phones the wall turns into a wide strip: 45 columns x 10 rows, still 450 bottles */
-  .bottle-grid { max-width: none; aspect-ratio: 45 / 20; background-size: calc(100% / 45) calc(100% / 10); }
+  .bottle-grid { max-width: none; aspect-ratio: var(--m-ratio); background-size: calc(100% / var(--m-cols)) calc(100% / var(--m-rows)); }
   .wall-number { font-size: 52px; }
   /* Comparison becomes one card per row: label on top, then the two answers */
   .compare-head { display: none; }
@@ -351,10 +367,10 @@ a:hover { color: var(--green-darker); }
   .compare-row > [role="rowheader"] { grid-column: 1 / -1; padding: 0; font-size: 14px; }
   .compare-row > span { padding: 10px 12px; font-size: 14px; align-items: flex-start; }
   .compare-row .col-bottled { background: #fff; border: 1px solid var(--line); border-radius: 10px; }
-  .compare-row .col-bottled::before { content: "Bottled"; }
+  .compare-row .col-bottled::before { content: attr(data-label); }
   .compare-row .col-us { border-radius: 10px; }
   .compare-row:last-child .col-us { border-radius: 10px; }
-  .compare-row .col-us::before { content: "reBottled"; }
+  .compare-row .col-us::before { content: attr(data-label); }
   .compare-row .col-bottled, .compare-row .col-us { display: block; line-height: 1.45; }
   .compare-row .col-bottled::before, .compare-row .col-us::before { display: block; margin-bottom: 3px; font-size: 12px; color: var(--muted); font-weight: 500; }
   .steps { grid-template-columns: minmax(0, 1fr); gap: 0; }

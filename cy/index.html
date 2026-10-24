@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>reBottled | Νερό βρύσης με γεύση εμφιαλωμένου, χωρίς πλαστικό</title>
+  <meta name="description" content="Η reBottled είναι κοινωνική επιχείρηση που φέρνει στα σπίτια της Κύπρου νερό βρύσης με καλή γεύση, ώστε να μην αγοράζετε πια νερό σε πλαστικά μπουκάλια.">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:title" content="reBottled | Νερό βρύσης με γεύση εμφιαλωμένου, χωρίς πλαστικό">
+  <meta property="og:description" content="Φίλτρο νερού για το σπίτι με συνδρομή στην Κύπρο. Πιλοτικό πρόγραμμα: πρώτος μήνας και εγκατάσταση δωρεάν.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="../assets/hero-filter.webp">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,300;7..72,400;7..72,500&family=Noto+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="../styles.css">
+  <script>document.documentElement.classList.add("js");</script>
+  <script type="application/json" id="i18n">
+  {
+    "sending": "Αποστολή…",
+    "notify": "Ενημερώστε με",
+    "errorEmpty": "Γράψτε τη διεύθυνση email σας.",
+    "errorInvalid": "Η διεύθυνση email δεν φαίνεται σωστή. Ελέγξτε την ξανά.",
+    "errorFailed": "Κάτι πήγε στραβά και δεν αποθηκεύσαμε το email σας. Δοκιμάστε ξανά.",
+    "thanksTitle": "Είστε στη λίστα.",
+    "thanksQuestion": "Κάτι ακόμα: πού μένετε; Θα σας ενημερώσουμε όταν το πιλοτικό έρθει κοντά σας.",
+    "thanksPlace": "Θα σας στείλουμε email μόλις ξεκινήσει το πιλοτικό {place}, με τον πρώτο μήνα και την εγκατάσταση δωρεάν.",
+    "thanksOther": "Θα σας κρατάμε ενήμερους και, αν έρθουμε στην περιοχή σας, ο πρώτος μήνας και η εγκατάσταση θα είναι δωρεάν.",
+    "regions": [
+      {
+        "id": "cyprus",
+        "label": "Κύπρος",
+        "place": "στην Κύπρο"
+      },
+      {
+        "id": "malta",
+        "label": "Μάλτα",
+        "place": "στη Μάλτα"
+      },
+      {
+        "id": "canary-islands",
+        "label": "Κανάριοι Νήσοι",
+        "place": "στις Κανάριες Νήσους"
+      },
+      {
+        "id": "other",
+        "label": "Κάπου αλλού",
+        "place": null
+      }
+    ]
+  }
+  </script>
+  <script src="../main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Μετάβαση στο περιεχόμενο</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="reBottled, επιστροφή στην αρχή">
+        <picture>
+          <source srcset="../assets/logo.webp" type="image/webp">
+          <img src="../assets/logo.png" alt="reBottled" width="174" height="40">
+        </picture>
+      </a>
+      <p class="header-note">Πιλοτικό πρόγραμμα σύντομα στην <span>Κύπρο</span></p>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="hero" id="top">
+      <div class="wrap hero-copy">
+        <h1 class="hero-title"><span class="hero-title-line">Νερό βρύσης με γεύση εμφιαλωμένου.</span> <span class="hero-title-line hero-title-quiet">Χωρίς το πλαστικό.</span></h1>
+        <p class="hero-lead">Ένα φίλτρο για το σπίτι με συνδρομή. Στα σπίτια του πιλοτικού προγράμματος ο πρώτος μήνας και η εγκατάσταση είναι δωρεάν.</p>
+      </div>
+      <figure class="hero-product">
+        <img src="../assets/hero-filter.webp" srcset="../assets/hero-filter-1000.webp 947w, ../assets/hero-filter.webp 1894w" sizes="(max-width: 700px) 100vw, 960px" alt="Το φίλτρο reBottled: ένας λεπτός λευκός κύλινδρος με μεταλλικό καπάκι και το πράσινο λογότυπο της reBottled" width="1894" height="442" fetchpriority="high">
+      </figure>
+      <div class="wrap hero-signup">
+        <form class="signup" novalidate>
+          <div class="signup-field">
+            <label class="visually-hidden" for="hero-email">Διεύθυνση email</label>
+            <input id="hero-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="Το email σας" required>
+            <button class="pill-button" type="submit">Ενημερώστε με</button>
+          </div>
+          <p class="signup-note">Μόνο νέα για το πιλοτικό πρόγραμμα. Διαγραφή όποτε θέλετε.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section impact" id="mission" aria-labelledby="impact-title">
+      <div class="wrap impact-grid">
+        <div class="impact-copy">
+          <h2 id="impact-title">Κάθε ποτήρι είναι ένα μπουκάλι που δεν θα φτιαχτεί ποτέ.</h2>
+          <p class="lead">Είμαστε κοινωνική επιχείρηση. Μετράμε την επιτυχία μας σε κέρδος και σε πλαστικά μπουκάλια που οι πελάτες μας δεν αγοράζουν πια, και κάθε σπίτι λαμβάνει μια ετήσια αναφορά μπουκαλιών.</p>
+          <div class="chart" aria-labelledby="chart-title">
+            <p class="chart-title" id="chart-title">Εμφιαλωμένο νερό ανά άτομο τον χρόνο, σε μπουκάλια 1,5 λίτρου</p>
+            <dl class="bars">
+              <div class="bar-row">
+                <dt>Μάλτα</dt>
+                <dd><span class="bar"><span style="--w: 100%"></span></span><span class="bar-value">183</span></dd>
+              </div>
+              <div class="bar-row is-local">
+                <dt>Κύπρος</dt>
+                <dd><span class="bar"><span style="--w: 86%"></span></span><span class="bar-value">157</span></dd>
+              </div>
+              <div class="bar-row">
+                <dt>Κανάριοι Νήσοι</dt>
+                <dd><span class="bar"><span style="--w: 53%"></span></span><span class="bar-value">97</span></dd>
+              </div>
+              <div class="bar-row is-reference">
+                <dt>Μέσος όρος ΕΕ</dt>
+                <dd><span class="bar"><span style="--w: 27%"></span></span><span class="bar-value">49</span></dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <figure class="bottle-wall">
+          <div class="bottle-grid" role="img" aria-label="Πλέγμα με 390 μικρά πλαστικά μπουκάλια" style="--cols: 26; --rows: 15; --ratio: 0.8667; --m-cols: 39; --m-rows: 10; --m-ratio: 1.9500"></div>
+          <figcaption><span class="wall-number">390</span> μπουκάλια τον χρόνο που ένα τυπικό κυπριακό σπίτι σταματά να αγοράζει.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section compare" id="why" aria-labelledby="compare-title">
+      <div class="wrap">
+        <h2 id="compare-title" class="section-title">Καλύτερο για το νησί, πιο εύκολο για εσάς</h2>
+        <div class="compare-table" role="table" aria-label="Εμφιαλωμένο νερό σε σύγκριση με το reBottled">
+          <div class="compare-row compare-head" role="row">
+            <span role="columnheader"><span class="visually-hidden">Σύγκριση</span></span>
+            <span role="columnheader" class="col-bottled"><svg class="icon icon-head" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.2 2.8h3.6v2.7l1.7 2.6v13.1h-7V8.1l1.7-2.6z"/><path d="M8.5 12h7"/></svg>Εμφιαλωμένο νερό</span>
+            <span role="columnheader" class="col-us"><img src="../assets/favicon.png" alt="" width="22" height="22">reBottled</span>
+          </div>
+          <div class="compare-row" role="row">
+            <span role="rowheader">Πλαστικά μπουκάλια τον χρόνο</span>
+            <span role="cell" class="col-bottled" data-label="Εμφιαλωμένο"><span>Περίπου 390 ανά σπίτι</span></span>
+            <span role="cell" class="col-us" data-label="reBottled"><span><strong>Κανένα</strong></span></span>
+          </div>
+          <div class="compare-row" role="row">
+            <span role="rowheader">Κουβάλημα</span>
+            <span role="cell" class="col-bottled" data-label="Εμφιαλωμένο"><span>Μπουκάλια και ντεμιτζάνες, κάθε εβδομάδα</span></span>
+            <span role="cell" class="col-us" data-label="reBottled"><span><strong>Τίποτα.</strong> Τρέχει από τη βρύση σας</span></span>
+          </div>
+          <div class="compare-row" role="row">
+            <span role="rowheader">Γεύση</span>
+            <span role="cell" class="col-bottled" data-label="Εμφιαλωμένο"><span>Εξαρτάται από τη μάρκα</span></span>
+            <span role="cell" class="col-us" data-label="reBottled"><span><strong>Χωρίς αλάτι και χλώριο,</strong> με πρόσθετα μέταλλα</span></span>
+          </div>
+          <div class="compare-row" role="row">
+            <span role="rowheader">Στο σπίτι</span>
+            <span role="cell" class="col-bottled" data-label="Εμφιαλωμένο"><span>Ντεμιτζάνες που πιάνουν χώρο</span></span>
+            <span role="cell" class="col-us" data-label="reBottled"><span><strong>Μια μικρή συσκευή</strong> κάτω από τον νεροχύτη</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section how" id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <h2 id="how-title" class="section-title">Εύκολο να ξεκινήσετε, εύκολο να σταματήσετε</h2>
+        <ol class="steps">
+          <li>
+            <span class="step-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7.5 12 3.2l8.5 4.3v9L12 20.8l-8.5-4.3z"/><path d="M3.5 7.5 12 11.8l8.5-4.3M12 11.8v9"/></svg></span>
+            <h3>Σας στέλνουμε τη συσκευή</h3>
+            <p>Μια μικρή μονάδα κάτω από τον νεροχύτη, με δική της βρυσούλα.</p>
+          </li>
+          <li>
+            <span class="step-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span>
+            <h3>Εγκατάσταση σε 30 λεπτά</h3>
+            <p>Μόνοι σας με το βίντεό μας. Δωρεάν εγκατάσταση για τα σπίτια του πιλοτικού.</p>
+          </li>
+          <li>
+            <span class="step-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 12a7.5 7.5 0 0 1-13.4 4.6"/><path d="M4.5 12a7.5 7.5 0 0 1 13.4-4.6"/><path d="M18.4 3.8v3.9h-3.9"/><path d="M5.6 20.2v-3.9h3.9"/></svg></span>
+            <h3>Φίλτρα στην ώρα τους</h3>
+            <p>Αλλάζουν με ένα στρίψιμο, χωρίς εργαλεία. Αν σταματήσετε, παίρνουμε πίσω τη συσκευή.</p>
+          </li>
+        </ol>
+
+        <div class="price-band" id="pricing">
+          <p class="price"><span class="price-amount">24,90 €</span><span class="price-unit">τον μήνα, όλα περιλαμβάνονται</span></p>
+          <ul class="included">
+            <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5c3.2 4.1 5.6 7.1 5.6 10a5.6 5.6 0 0 1-11.2 0c0-2.9 2.4-5.9 5.6-10z"/></svg>Συσκευή με δανεισμό</li>
+            <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 12a7.5 7.5 0 0 1-13.4 4.6"/><path d="M4.5 12a7.5 7.5 0 0 1 13.4-4.6"/><path d="M18.4 3.8v3.9h-3.9"/><path d="M5.6 20.2v-3.9h3.9"/></svg>Όλα τα φίλτρα</li>
+            <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 5.5h15v10h-8.2l-4.3 3.5v-3.5H4.5z"/></svg>Υποστήριξη</li>
+            <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5h15"/><path d="M7.5 16.5v-5M12 16.5V6.5M16.5 16.5v-8"/></svg>Ετήσια αναφορά μπουκαλιών</li>
+          </ul>
+        </div>
+        <p class="fine price-fine">Πρόγραμμα 24 μηνών. Στα σπίτια του πιλοτικού ο πρώτος μήνας και η εγκατάσταση είναι δωρεάν.</p>
+      </div>
+    </section>
+
+    <section class="join" id="join" aria-labelledby="join-title">
+      <div class="wrap join-inner">
+        <h2 id="join-title">Μάθετε πρώτοι πότε ερχόμαστε στην Κύπρο.</h2>
+        <p class="join-lead">Το πιλοτικό ξεκινά στη Μάλτα και στη συνέχεια έρχεται στην Κύπρο και στις Κανάριες Νήσους. Όσοι εγγραφούν νωρίς έχουν τον πρώτο μήνα και την εγκατάσταση δωρεάν.</p>
+        <form class="signup" novalidate>
+          <div class="signup-field">
+            <label class="visually-hidden" for="join-email">Διεύθυνση email</label>
+            <input id="join-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="Το email σας" required>
+            <button class="pill-button" type="submit">Ενημερώστε με</button>
+          </div>
+          <p class="signup-note">Μόνο νέα για το πιλοτικό πρόγραμμα. Διαγραφή όποτε θέλετε.</p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p class="footer-line">Πιείτε από τη βρύση, <span class="accent">αφήστε το πλαστικό.</span></p>
+      <nav class="lang-switch" aria-label="Γλώσσα">
+        <a href="../" lang="en" hreflang="en">English</a>
+        <a href="../es/" lang="es" hreflang="es">Español</a>
+        <a href="./" lang="el" hreflang="el" aria-current="page">Ελληνικά</a>
+        <a href="../mt/" lang="mt" hreflang="mt">Malti</a>
+      </nav>
+      <p class="fine">© <span id="year">2026</span> reBottled. Μια κοινωνική επιχείρηση.</p>
+    </div>
+  </footer>
+</body>
+</html>

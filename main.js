@@ -29,12 +29,33 @@
 
   var EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-  var REGIONS = [
-    { id: "malta", label: "Malta", phrase: "Malta" },
-    { id: "cyprus", label: "Cyprus", phrase: "Cyprus" },
-    { id: "canary-islands", label: "Canary Islands", phrase: "the Canary Islands" },
-    { id: "other", label: "Somewhere else", phrase: null }
-  ];
+  // Interface text. English is the default; a localised page overrides any of
+  // these keys with a <script type="application/json" id="i18n"> block.
+  var T = {
+    sending: "Sending…",
+    notify: "Notify me",
+    errorEmpty: "Please enter your email address.",
+    errorInvalid: "That doesn't look like an email address. Please check it.",
+    errorFailed: "Something went wrong and we couldn't save your email. Please try again.",
+    thanksTitle: "You're on the list.",
+    thanksQuestion: "One more thing: where do you live? We'll tell you when the pilot reaches you.",
+    thanksPlace: "We'll email you as soon as the pilot opens {place}, with your first month and installation free.",
+    thanksOther: "We'll keep you posted, and if we come to your area your first month and installation are free.",
+    regions: [
+      { id: "malta", label: "Malta", place: "in Malta" },
+      { id: "cyprus", label: "Cyprus", place: "in Cyprus" },
+      { id: "canary-islands", label: "Canary Islands", place: "in the Canary Islands" },
+      { id: "other", label: "Somewhere else", place: null }
+    ]
+  };
+  var i18nNode = document.getElementById("i18n");
+  if (i18nNode) {
+    try {
+      var custom = JSON.parse(i18nNode.textContent);
+      Object.keys(custom).forEach(function (key) { T[key] = custom[key]; });
+    } catch (e) { /* keep English */ }
+  }
+  var REGIONS = T.regions;
 
   // Placeholders for the real requests. They return promises so the UI flow
   // already matches what network calls will need.
@@ -61,8 +82,8 @@
     panel.setAttribute("role", "status");
     panel.setAttribute("tabindex", "-1");
 
-    var title = el("p", "signup-thanks-title", "You're on the list.");
-    var question = el("p", "signup-thanks-text", "One more thing: where do you live? We'll tell you when the pilot reaches you.");
+    var title = el("p", "signup-thanks-title", T.thanksTitle);
+    var question = el("p", "signup-thanks-text", T.thanksQuestion);
     var choices = el("div", "region-choices");
 
     REGIONS.forEach(function (region) {
@@ -71,9 +92,9 @@
       button.addEventListener("click", function () {
         saveRegion({ email: email, region: region.id }).then(function () {
           choices.remove();
-          question.textContent = region.phrase
-            ? "We'll email you as soon as the pilot opens in " + region.phrase + ", with your first month and installation free."
-            : "We'll keep you posted, and if we come to your area your first month and installation are free.";
+          question.textContent = region.place
+            ? T.thanksPlace.replace("{place}", region.place)
+            : T.thanksOther;
         });
       });
       choices.appendChild(button);
@@ -117,28 +138,28 @@
       var value = input.value.trim();
 
       if (!value) {
-        setError("Please enter your email address.");
+        setError(T.errorEmpty);
         input.focus();
         return;
       }
       if (!EMAIL_PATTERN.test(value)) {
-        setError("That doesn't look like an email address. Please check it.");
+        setError(T.errorInvalid);
         input.focus();
         return;
       }
       setError("");
 
       button.disabled = true;
-      button.textContent = "Sending…";
+      button.textContent = T.sending;
 
       submitSignup({ email: value, signedUpAt: new Date().toISOString() })
         .then(function () {
           showThanks(form, value);
         })
         .catch(function () {
-          setError("Something went wrong and we couldn't save your email. Please try again.");
+          setError(T.errorFailed);
           button.disabled = false;
-          button.textContent = "Notify me";
+          button.textContent = T.notify;
         });
     });
   });
